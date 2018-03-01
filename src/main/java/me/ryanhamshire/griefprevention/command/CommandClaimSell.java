@@ -71,7 +71,7 @@ public class CommandClaimSell implements CommandExecutor {
             return CommandResult.success();
         }
 
-        if (!playerData.canIgnoreClaim((GPClaim) claim) && !src.hasPermission(GPPermissions.COMMAND_CLAIM_SELL) || ( !claim.isWilderness() && !player.getUniqueId().equals(claim.getOwnerUniqueId)) {
+        if (!playerData.canIgnoreClaim((GPClaim) claim) && !src.hasPermission(GPPermissions.COMMAND_CLAIM_SELL) || ( !claim.isWilderness() && !player.getUniqueId().equals(claim.getOwnerUniqueId())) {
             GriefPreventionPlugin.sendMessage(player, GriefPreventionPlugin.instance.messageData.permissionClaimSale.toText());
             return CommandResult.success();
         }
