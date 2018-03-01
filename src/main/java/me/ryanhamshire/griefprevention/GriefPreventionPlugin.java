@@ -1094,7 +1094,7 @@ public class GriefPreventionPlugin {
 
         Sponge.getCommandManager().register(this, CommandSpec.builder()
                 .description(Text.of("Puts your claim up for sale. Use /claimsell amount. Requires an economy plugin"))
-                .permission(GPPermissions.COMMAND_SELL_CLAIM_BLOCKS)
+                .permission(GPPermissions.COMMAND_CLAIM_SELL)
                 .arguments(GenericArguments.firstParsing(doubleNum(Text.of("price")), string(Text.of("cancel"))))
                 .executor(new CommandClaimSell())
                 .build(), "claimsell");
