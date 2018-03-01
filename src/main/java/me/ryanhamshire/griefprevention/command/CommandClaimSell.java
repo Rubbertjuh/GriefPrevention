@@ -67,7 +67,7 @@ public class CommandClaimSell implements CommandExecutor {
         final Claim claim = GriefPreventionPlugin.instance.dataStore.getClaimAt(player.getLocation());
         UUID ownerId = claim.getOwnerUniqueId();
 
-        if (claim.isAdminClaim() || claim.isWilderness()){
+        if (claim.isAdminClaim() || claim.isWilderness()) {
             GriefPreventionPlugin.sendMessage(player, GriefPreventionPlugin.instance.messageData.economyClaimNotForSale.toText());
             return CommandResult.success();
         }
