@@ -65,14 +65,13 @@ public class CommandClaimSell implements CommandExecutor {
 
         final GPPlayerData playerData = GriefPreventionPlugin.instance.dataStore.getOrCreatePlayerData(player.getWorld(), player.getUniqueId());
         final Claim claim = GriefPreventionPlugin.instance.dataStore.getClaimAt(player.getLocation());
-        UUID ownerId = claim.getOwnerUniqueId();
 
         if (claim.isAdminClaim() || claim.isWilderness()) {
             GriefPreventionPlugin.sendMessage(player, GriefPreventionPlugin.instance.messageData.economyClaimNotForSale.toText());
             return CommandResult.success();
         }
 
-        if (!playerData.canIgnoreClaim((GPClaim) claim) && !src.hasPermission(GPPermissions.COMMAND_CLAIM_SELL) || ( !claim.isWilderness() && !player.getUniqueId().equals(ownerId)) {
+        if (!playerData.canIgnoreClaim((GPClaim) claim) && !src.hasPermission(GPPermissions.COMMAND_CLAIM_SELL) || ( !claim.isWilderness() && !player.getUniqueId().equals(claim.getOwnerUniqueId)) {
             GriefPreventionPlugin.sendMessage(player, GriefPreventionPlugin.instance.messageData.permissionClaimSale.toText());
             return CommandResult.success();
         }
